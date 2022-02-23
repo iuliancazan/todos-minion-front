@@ -15,7 +15,7 @@ function Home() {
               <>{!task.completed ? <Task task={task} key={task.id} /> : ''}</>
             ))
           ) : (
-            <p>No due tasks.</p>
+            <p key="msg_1">No due tasks.</p>
           )}
           {/* <h3 className="showHiddenTasks">Completed tasks</h3> */}
           <hr />
@@ -24,7 +24,7 @@ function Home() {
               <>{task.completed ? <Task task={task} key={task.id} /> : ''}</>
             ))
           ) : (
-            <p>No completed tasks.</p>
+            <p key="msg_2">No completed tasks.</p>
           )}
         </div>
       </div>

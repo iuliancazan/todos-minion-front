@@ -1,3 +1,4 @@
+import { toast } from 'react-toastify';
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import taskService from './taskService';
 
@@ -68,6 +69,11 @@ export const taskSlice = createSlice({
         state.isSuccess = true;
         // state.tasks.splice(state.tasks.findIndex((task) => task.id === action.payload), 1);
         state.tasks = state.tasks.filter((task) => task.id != action.payload);
+        toast.error('Task deleted', {
+          position: 'top-right',
+          autoClose: 1000,
+          hideProgressBar: true,
+        });
       })
       .addCase(toggleCompleteTask.pending, (state) => {
         state.isLoading = true;
@@ -77,6 +83,13 @@ export const taskSlice = createSlice({
         state.isSuccess = true;
         const pos = state.tasks.findIndex((task) => task.id === action.payload);
         state.tasks[pos].completed = !state.tasks[pos].completed;
+        if (state.tasks[pos].completed) {
+          toast.success(`Completed "${state.tasks[pos].name}"`, {
+            position: 'top-right',
+            autoClose: 3000,
+            hideProgressBar: false,
+          });
+        }
       });
   },
 });
