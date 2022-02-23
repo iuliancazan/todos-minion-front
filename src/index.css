@@ -173,8 +173,8 @@ h3 {
   background-color: #fff;
   border-radius: 1rem;
   padding: 1rem;
-  -webkit-box-shadow: 0 0 1rem rgb(0 0 0 / 50%);
-  box-shadow: 0 0 1rem rgb(0 0 0 / 50%);
+  -webkit-box-shadow: 0 0 1rem rgb(0 0 0 / 30%);
+  box-shadow: 0 0 1rem rgb(0 0 0 / 30%);
 }
 
 .tasks__container {
@@ -252,6 +252,15 @@ h3 {
   font-size: large;
   font-weight: 600;
   cursor: pointer;
+}
+
+/* MEDIA QUERIES */
+@media (max-width: 600px) {
+  .tasks {
+    max-width: 100%;
+    -webkit-box-shadow: 0 0 0.1rem rgb(0 0 0 / 20%);
+    box-shadow: 0 0 0.5rem rgb(0 0 0 / 20%);
+  }
 }
 
 /* UTILITIES */
